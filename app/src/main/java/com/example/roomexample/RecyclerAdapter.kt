@@ -1,30 +1,29 @@
 package com.example.roomexample
 
-import android.app.Dialog
+
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.data.User
 import com.example.roomapp.data.UserViewModel
 
-class RecyclerAdapter() :
+class RecyclerAdapter constructor(val context: MainActivity) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    private var userList = emptyList<User>()
     private lateinit var mUserViewModel: UserViewModel
-    lateinit var context: Context
 
-    constructor(context: Context): this(context) {
+//other method
+//    constructor(context: MainActivity,mModel: UserViewModel):this(context){
+//        mUserViewModel = ViewModelProvider(context).get(UserViewModel::class.java)
+//    }
 
-    }
+    private var userList = emptyList<User>()
 
 
 
@@ -49,7 +48,7 @@ class RecyclerAdapter() :
             }
 
         holder.deletebtn.setOnClickListener {
-            mUserViewModel = ViewModelProvider(it.contextcontext).get(UserViewModel::class.java)
+            mUserViewModel = ViewModelProvider(context).get(UserViewModel::class.java)
             mUserViewModel.deleteUser(newlist)
 
         }

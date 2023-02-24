@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
             dialog.show()
         }
-        val adapter  = RecyclerAdapter()
+        val adapter  = RecyclerAdapter(this)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 

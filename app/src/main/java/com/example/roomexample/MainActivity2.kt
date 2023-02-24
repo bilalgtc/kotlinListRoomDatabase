@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.roomapp.data.User
 import com.example.roomapp.data.UserViewModel
 import com.example.roomexample.databinding.ActivityMain2Binding
-import com.example.roomexample.databinding.ActivityMainBinding
 
 class MainActivity2 : AppCompatActivity() {
     lateinit var binding: ActivityMain2Binding
@@ -34,7 +33,7 @@ class MainActivity2 : AppCompatActivity() {
 
             userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-            val updateduser = User(Integer.parseInt(id), newname, newmail, "11111")
+            val updateduser = User(Integer.parseInt(id.toString()), newname, newmail, "11111")
             userViewModel.updateUser(updateduser)
 
             val i = Intent(applicationContext, MainActivity::class.java)

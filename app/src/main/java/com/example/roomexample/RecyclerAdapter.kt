@@ -1,7 +1,7 @@
 package com.example.roomexample
 
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -62,15 +62,16 @@ class RecyclerAdapter constructor(val context: MainActivity) :
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val name = itemView.findViewById<TextView>(R.id.name_txt)
-        val email = itemView.findViewById<TextView>(R.id.emil_txt)
-        val updatebtn = itemView.findViewById<Button>(R.id.btn_update)
-        val deletebtn = itemView.findViewById<Button>(R.id.btn_close)
+        val name: TextView = itemView.findViewById(R.id.name_txt)
+        val email:TextView = itemView.findViewById(R.id.emil_txt)
+        val updatebtn: Button = itemView.findViewById(R.id.btn_update)
+        val deletebtn:Button = itemView.findViewById(R.id.btn_close)
 
 
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(user: List<User>) {
         this.userList = user
         notifyDataSetChanged()
